@@ -17,7 +17,7 @@
     endif;
   ?>
 
-  <!-- Adds dynamic classes to the body tag -->
+  <!-- Adds the above dynamic classes to the body tag -->
   <body <?php body_class( $antagonist_classes ); ?>>
 
     <?php wp_nav_menu( array('theme_location'=>'primary') ); ?>
