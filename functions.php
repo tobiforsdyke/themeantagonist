@@ -9,7 +9,7 @@ function antagonist_script_enqueue() {
 
 add_action( 'wp_enqueue_scripts', 'antagonist_script_enqueue');
 
-// Functions to register the custom menus
+// Functions to add menu support and register the custom menus
 
 function antagonist_theme_setup() {
   add_theme_support( 'menus' );
@@ -18,3 +18,9 @@ function antagonist_theme_setup() {
 }
 
 add_action( 'init', 'antagonist_theme_setup' );
+
+// Add more them supports
+
+add_theme_support( 'custom-background' );
+add_theme_support( 'custom-header' );
+add_theme_support( 'post-thumbnails' );
