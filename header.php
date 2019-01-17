@@ -33,6 +33,7 @@
             <?php wp_nav_menu( array('theme_location'=>'primary') ); ?>
           </nav>
 
+<hr />
 
           <!-- Alternate Navbar testing -->
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,9 +57,46 @@
             </div>
           </nav>
 
+          <hr />
+          <!-- Third Navbar test -->
+
+          <div class="jumbotron" style="margin-bottom: 0px;">
+            <h1>Header</h1>
+            <p>Paragraph</p>
+          </div>
+          <!-- bg-primary, bg-success, bg-warning, bg-info and bg-danger -->
+          <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+
+            <!-- Create the collapse button for smaller window sizes -->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#my_collapse_target_name">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="my_collapse_target_name">
+
+            <a class="navbar-brand" href="#"></a>
+            <span class="navbar-text">SITE NAME</span>
+            <ul class="navbar-nav">
+              <li class="nav-item-dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="my_dropdown_target" href="#">Link 1</a>
+                <span class="caret"></span>
+                <div class="dropdown-menu" aria-labelledby="my_dropdown_target">
+                  <a class="dropdown-item" href="#">Other Link 1</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Other Link 2</a>
+                  <a class="dropdown-item" href="#">Other Link 3</a>
+                  <a class="dropdown-item" href="#">Other Link 4</a>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Link 4</a></li>
+            </ul>
+            </div>
+          </nav>
 
 
-
+          <hr />
 
         </div>
       </div>
