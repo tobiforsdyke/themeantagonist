@@ -20,10 +20,10 @@
   <!-- Adds the above dynamic classes to the body tag -->
   <body <?php body_class( $antagonist_classes ); ?>>
 
-    <div class="container">
+  <div class="container">
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-lg-12">
           <!-- Adds the custom header defined under theme options -->
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="">
           <!-- Adds the menu -->
