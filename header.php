@@ -26,11 +26,32 @@
         <div class="col-lg-12">
           <!-- Adds the custom header defined under theme options -->
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="">
+
+
           <!-- Adds the menu -->
 
-          <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#!">Navbar</a>
-            <?php wp_nav_menu( array('theme_location'=>'primary') ); ?>
+
+          <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <!-- Add the toggle button -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuItemsCollapsed1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <!-- Add the collapsable part -->
+            <!-- The line below is not needed now as the class and id are in the array -->
+            <!-- <div class="collapse navbar-collapse" id="menuItemsCollapsed1"> -->
+            <!-- Add the wordpress menu -->
+            <?php wp_nav_menu( array(
+              'theme_location'=>'primary',
+              'container'=>'nav',
+              'container_class'=>'collapse navbar-collapse',
+              'container_id'=>'menuItemsCollapsed1',
+              'menu_class'=>'nav navbar-nav ml-auto navbar nav-item',
+              // 'items_wrap'=>'%3$s',
+              // 'menu_id'=>''
+              // 'fallback_cb'=>false
+            ) ); ?>
+            <!-- </div> -->
           </nav>
 
 <hr />
