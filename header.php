@@ -7,7 +7,7 @@
   </head>
 
   <!-- Adds specific class if on front page only otherwise different class -->
-  <!-- Remember Wordpress classes home as the one with blogroll on it -->
+  <!-- Remember Wordpress classes 'home' as the one with blogroll on it -->
   <!-- Use if( is_home() ) instead if wanting to change the blog -->
   <?php
     if( is_front_page() ):
@@ -27,6 +27,11 @@
           <!-- Adds the custom header defined under theme options -->
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="">
 
+          <!-- Test jumbotron which includes the custom header image -->
+          <div class="jumbotron" style="margin-bottom: 0px; background-image: url(<?php header_image(); ?>); background-size: 100%; background-repeat: no-repeat;">
+            <h1>Header</h1>
+            <p>Paragraph</p>
+          </div>
 
           <!-- Adds the menu -->
 
@@ -64,7 +69,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -107,6 +112,7 @@
                   <a class="dropdown-item" href="#">Other Link 2</a>
                   <a class="dropdown-item" href="#">Other Link 3</a>
                   <a class="dropdown-item" href="#">Other Link 4</a>
+                  <a class="dropdown-item" href="#">Other Link 5</a>
                 </div>
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
