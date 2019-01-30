@@ -47,7 +47,8 @@
               'container_class'=>'collapse navbar-collapse',
               'container_id'=>'menuItemsCollapsed1',
               'menu_class'=>'nav navbar-nav ml-auto navbar nav-item',
-              // 'items_wrap'=>'%3$s',
+              'items_wrap'=>'<ul id="%1$s" class="%2$s">%3$s</ul>'
+              // 'items_wrap'=>'%3$s'
               // 'menu_id'=>''
               // 'fallback_cb'=>false
             ) ); ?>
