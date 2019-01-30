@@ -9,94 +9,61 @@ get_header();?>
 
 <div class="row">
 
-    <?php
+    <div id="antagonist-carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- The looped array goes inside the carousel inner -->
+        <?php
 
-      $args_cat = array(
-        'include' => '14, 15, 16'
-      );
+          $args_cat = array(
+            'include' => '14, 15, 16'
+          );
 
-      $categories = get_categories($args_cat);
-      foreach($categories as $category):
+          $categories = get_categories($args_cat);
+          $count = 0;
+          $bullets = '';
+          foreach($categories as $category):
 
-        $args = array(
-          'type' => 'post',
-          'posts_per_page' => 1,
-          'category__in' => $category->term_id,
-        );
-        $lastBlog = new WP_Query($args);
+            $args = array(
+              'type' => 'post',
+              'posts_per_page' => 3,
+              'category__in' => $category->term_id,
+            );
+            $lastBlog = new WP_Query($args);
 
-        if( $lastBlog->have_posts() ):
-            while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+            if( $lastBlog->have_posts() ):
+                while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
 
-              <div class="col-xs-12 col-sm-4">
-                <?php get_template_part('content','featured'); ?>
-              </div>
+                <div class="carousel-item <?php if($count == 0): echo 'active'; endif; ?>">
+                  <?php the_post_thumbnail('medium'); ?>
+                  <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+                </div>
 
-        <?php endwhile; ?>
-        <?php endif;
+                <?php $bullets .= '<li data-target="#antagonist-carousel" data-slide-to="'.$count.'" class="'; ?>
+                <?php if($count == 0): $bullets .='active'; endif; ?>
+                <?php $bullets .= '"></li>' ?>
 
-        wp_reset_postdata();
+            <?php endwhile; ?>
+            <?php endif;
 
-      endforeach;
+            wp_reset_postdata();
+            $count++;
+          endforeach;
+        ?>
 
-/*
-    ?>
-  </div>
+        <ol class="carousel-indicators">
+          <?php echo $bullets; ?>
+        </ol>
 
-  <div class="col-xs-12 col-sm-8">
-    <?php if( have_posts() ):
-        while( have_posts() ): the_post(); ?>
-
-          <!-- Calls the standard post format from content.php -->
-          <!-- Otherwise calls the get_post_format page (aside, image etc) -->
-          <?php get_template_part('content',get_post_format() ); ?>
-
-    <?php endwhile; ?>
-    <?php endif;
-    // PRINT NEXT 2 POSTS BUT NOT THE FIRST ONE USING OFFSET VARIBLE
-    $args = array(
-      'type' => 'post',
-      'posts_per_page' => 2,
-      'offset' => 1
-    );
-
-    $lastBlog = new WP_Query($args);
-
-    if( $lastBlog->have_posts() ):
-        while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
-
-          <?php get_template_part('content',get_post_format() ); ?>
-
-    <?php endwhile; ?>
-    <?php endif;
-
-    wp_reset_postdata();
-
-    ?>
-
-    <hr />
-
-    <?php
-    // PRINT ONLY ALL THE NEWS TYPE 1's, POSTS PER PAGE -1 MEANS INFINITE
-
-    $args = array(
-      'type' => 'post',
-      'posts_per_page' => -1,
-      'category_name' => 'news-type-1'
-    );
-    $lastBlog = new WP_Query($args);
-
-    if( $lastBlog->have_posts() ):
-        while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
-
-          <?php get_template_part('content',get_post_format() ); ?>
-
-    <?php endwhile; ?>
-    <?php endif;
-
-    wp_reset_postdata();
-*/
-    ?>
+      </div>
+      <a class="carousel-control-prev" href="#antagonist-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#antagonist-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 
 </div>
 
