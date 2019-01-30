@@ -22,6 +22,7 @@ get_header();?>
 
     <?php endwhile; ?>
     <?php endif;
+    // wp reset postdata to clean the above query and reset the post data
     wp_reset_postdata();
     ?>
   </div>

@@ -9,25 +9,37 @@ get_header();?>
 
 <div class="row">
 
-  <div class="col-xs-12">
     <?php
-    // PRINT ONLY THE MOST RECENT ONE POST FEATURED FULL WIDTH
-      $args = array(
-        'type' => 'post',
-        'posts_per_page' => 1
+
+      $args_cat = array(
+        'include' => '14, 15, 16'
       );
-      $lastBlog = new WP_Query($args);
 
-      if( $lastBlog->have_posts() ):
-          while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+      $categories = get_categories($args_cat);
+      foreach($categories as $category):
 
-            <?php get_template_part('content',get_post_format() ); ?>
+        $args = array(
+          'type' => 'post',
+          'posts_per_page' => 1,
+          'category__in' => $category->term_id,
+        );
+        $lastBlog = new WP_Query($args);
 
-      <?php endwhile; ?>
-      <?php endif;
+        if( $lastBlog->have_posts() ):
+            while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
 
-      wp_reset_postdata();
+              <div class="col-xs-12 col-sm-4">
+                <?php get_template_part('content','featured'); ?>
+              </div>
 
+        <?php endwhile; ?>
+        <?php endif;
+
+        wp_reset_postdata();
+
+      endforeach;
+
+/*
     ?>
   </div>
 
@@ -41,7 +53,6 @@ get_header();?>
 
     <?php endwhile; ?>
     <?php endif;
-
     // PRINT NEXT 2 POSTS BUT NOT THE FIRST ONE USING OFFSET VARIBLE
     $args = array(
       'type' => 'post',
@@ -67,6 +78,7 @@ get_header();?>
 
     <?php
     // PRINT ONLY ALL THE NEWS TYPE 1's, POSTS PER PAGE -1 MEANS INFINITE
+
     $args = array(
       'type' => 'post',
       'posts_per_page' => -1,
@@ -83,8 +95,14 @@ get_header();?>
     <?php endif;
 
     wp_reset_postdata();
-
+*/
     ?>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-8">
 
   </div>
 
