@@ -1,31 +1,45 @@
 <?php get_header();?>
 
-<div class="row text-center">
-  <div class="col-12"> FULL SIZE </div>
-
-  <div class="col-6"> HALF SIZE </div>
-  <div class="col-6"> HALF SIZE </div>
-
-  <div class="col-4"> THIRD SIZE </div>
-  <div class="col-4"> THIRD SIZE </div>
-  <div class="col-4"> THIRD SIZE </div>
-</div>
-
 <div class="row">
 
   <div class="col-12 col-sm-8">
-    <?php if( have_posts() ):
+
+    <div class="row text-center">
+
+    <?php if( have_posts() ): $i = 0;
         while( have_posts() ): the_post(); ?>
 
-          <!-- Calls the standard post format from content.php -->
-          <!-- Otherwise calls the get_post_format page (aside, image etc) -->
-          <?php get_template_part('content',get_post_format() ); ?>
+          <?php if($i==0): ?>
+            <div class="col-12">
+              <?php if( has_post_thumbnail() ): ?>
+                  <div class="thumbnail"><?php the_post_thumbnail('thumbnail'); ?></div>
+              <?php endif; ?>
+              <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+              <small><?php the_category(' '); ?></small>
+            </div>
+          <?php elseif($i > 0 && $i <= 2): ?>
+            <div class="col-6">
+              <?php if( has_post_thumbnail() ): ?>
+                  <div class="thumbnail"><?php the_post_thumbnail('thumbnail'); ?></div>
+              <?php endif; ?>
+              <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+              <small><?php the_category(' '); ?></small>
+            </div>
+          <?php elseif($i > 2): ?>
+            <div class="col-4">
+              <?php if( has_post_thumbnail() ): ?>
+                  <div class="thumbnail"><?php the_post_thumbnail('thumbnail'); ?></div>
+              <?php endif; ?>
+              <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+              <small><?php the_category(' '); ?></small>
+            </div>
+          <?php endif; ?>
 
-          <!-- Could also change the name to create other content pages -->
-          <!-- <?php get_template_part('test',get_post_format() ); ?> -->
+    <?php $i++; endwhile;
+    endif; ?>
 
-    <?php endwhile; ?>
-    <?php endif; ?>
+    </div>
+
   </div>
 
   <div class="col-12 col-sm-4">
