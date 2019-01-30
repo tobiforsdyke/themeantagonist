@@ -9,7 +9,7 @@ get_header();?>
 
 <div class="row">
 
-    <div id="antagonist-carousel" class="carousel slide" data-ride="carousel">
+    <div id="antagonist-carousel" class="carousel slide col-lg-12" data-ride="carousel">
       <div class="carousel-inner">
         <!-- The looped array goes inside the carousel inner -->
         <?php
@@ -35,7 +35,10 @@ get_header();?>
 
                 <div class="carousel-item <?php if($count == 0): echo 'active'; endif; ?>">
                   <?php the_post_thumbnail('full'); ?>
-                  <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+                  <div class="carousel-caption">
+                    <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+                    <small><?php the_category(' '); ?></small>
+                  </div>
                 </div>
 
                 <?php $bullets .= '<li data-target="#antagonist-carousel" data-slide-to="'.$count.'" class="'; ?>
