@@ -1,8 +1,19 @@
 <?php get_header();?>
 
+<div class="row text-center">
+  <div class="col-12"> FULL SIZE </div>
+
+  <div class="col-6"> HALF SIZE </div>
+  <div class="col-6"> HALF SIZE </div>
+
+  <div class="col-4"> THIRD SIZE </div>
+  <div class="col-4"> THIRD SIZE </div>
+  <div class="col-4"> THIRD SIZE </div>
+</div>
+
 <div class="row">
 
-  <div class="col-xs-12 col-sm-8">
+  <div class="col-12 col-sm-8">
     <?php if( have_posts() ):
         while( have_posts() ): the_post(); ?>
 
@@ -17,7 +28,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-12 col-sm-4">
     <?php get_sidebar();?>
   </div>
 

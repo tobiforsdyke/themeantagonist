@@ -23,7 +23,7 @@
   <div class="container">
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-12">
           <!-- Adds the custom header defined under theme options -->
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="">
 
@@ -85,6 +85,6 @@
           </nav>
 
           <hr />
-          
+
         </div>
       </div>

@@ -6,7 +6,7 @@ get_header();?>
 
 <div class="row">
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-12 col-sm-4">
     <?php
     $args = array(
       'type' => 'post',
@@ -27,7 +27,7 @@ get_header();?>
     ?>
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-12 col-sm-4">
     <?php
     $args = array(
       'type' => 'post',
@@ -47,7 +47,7 @@ get_header();?>
     ?>
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-12 col-sm-4">
     <?php
     $args = array(
       'type' => 'post',

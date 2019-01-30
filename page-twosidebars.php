@@ -6,7 +6,7 @@ get_header();?>
 
 <div class="row">
 
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-12 col-lg-6">
     <?php if( have_posts() ):
         while( have_posts() ): the_post(); ?>
 
@@ -21,11 +21,11 @@ get_header();?>
     <?php endif; ?>
   </div>
 
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-12 col-lg-3">
     <?php get_sidebar('sidebar-1');?>
   </div>
 
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-12 col-lg-3">
     <?php include('sidebar2.php');?>
   </div>
 

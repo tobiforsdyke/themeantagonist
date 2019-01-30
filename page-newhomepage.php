@@ -9,7 +9,7 @@ get_header();?>
 
 <div class="row">
 
-    <div id="antagonist-carousel" class="carousel slide col-lg-12" data-ride="carousel">
+    <div id="antagonist-carousel" class="carousel slide col-12" data-ride="carousel">
       <div class="carousel-inner">
         <!-- The looped array goes inside the carousel inner -->
         <?php
@@ -72,11 +72,11 @@ get_header();?>
 
 <div class="row">
 
-  <div class="col-xs-12 col-sm-8">
+  <div class="col-12 col-sm-8">
 
   </div>
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-12 col-sm-4">
     <?php get_sidebar();?>
   </div>
 
