@@ -34,7 +34,7 @@ get_header();?>
                 while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
 
                 <div class="carousel-item <?php if($count == 0): echo 'active'; endif; ?>">
-                  <?php the_post_thumbnail('medium'); ?>
+                  <?php the_post_thumbnail('full'); ?>
                   <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
                 </div>
 
