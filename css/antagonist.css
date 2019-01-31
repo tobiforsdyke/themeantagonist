@@ -11,3 +11,23 @@
 .three-column-blog-padding { padding: 0; }
 .three-column-blog-padding:nth-child(4) { padding-left: 15px; }
 .three-column-blog-padding:nth-child(6) { padding-right: 15px; }
+
+.no-margin { margin: 0; }
+.blog-item { padding: 0; }
+
+/* Header Search Form */
+
+.search-form-container {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 20px;
+  z-index: 2;
+}
+.open-search a {
+  font-size: 0;
+  width: 30px;
+}

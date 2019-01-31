@@ -35,7 +35,7 @@
 
           <!-- Adds the menu -->
 
-          <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
             <a class="navbar-brand" href="#">Navbar</a>
             <!-- Add the toggle button -->
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuItemsCollapsed1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,8 +60,12 @@
             <!-- </div> -->
           </nav>
 
-          <div class="search-form-container">
-            <?php get_search_form(); ?>
+          <div class="col-12">
+            <div class="search-form-container">
+              <div class="container">
+                <?php get_search_form(); ?>
+              </div>
+            </div>
           </div>
 
           <hr>
