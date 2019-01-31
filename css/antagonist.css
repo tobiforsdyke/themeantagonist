@@ -22,11 +22,11 @@
 .search-form-container {
   display: none;
   position: fixed;
-  top: 100px;
+  top: 130px;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.35);
-  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.10);
+  padding: 10px;
   z-index: 2;
 }
 .open-search a {

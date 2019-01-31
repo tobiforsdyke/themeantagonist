@@ -1,11 +1,13 @@
 <?php
 
+// ==============================
 // Functions to call the custom stylesheet and javascript folders and files
+// ==============================
 
 function antagonist_script_enqueue() {
   // CSS
   wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.2.1', 'all' );
-  wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/css/antagonist.css', array(), '1.2.1', 'all' );
+  wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/css/antagonist.css', array(), '1.2.2', 'all' );
   // JS
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.2.1', true );
@@ -16,7 +18,9 @@ function antagonist_script_enqueue() {
 
 add_action( 'wp_enqueue_scripts', 'antagonist_script_enqueue');
 
+// ==============================
 // Functions to add menu support and register the custom menus
+// ==============================
 
 function antagonist_theme_setup() {
   add_theme_support( 'menus' );
@@ -26,7 +30,9 @@ function antagonist_theme_setup() {
 
 add_action( 'init', 'antagonist_theme_setup' );
 
+// ==============================
 // Add more theme supports
+// ==============================
 
 add_theme_support( 'custom-background' );
 add_theme_support( 'custom-header' );
@@ -34,7 +40,9 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', array('aside','image','video','gallery') );
 add_theme_support( 'html5', array('search-form') );
 
+// ==============================
 // Add Sidebar Function
+// ==============================
 
 function antagonist_widget_setup() {
   register_sidebar(
@@ -64,7 +72,9 @@ function antagonist_widget_setup() {
 }
 add_action('widgets_init','antagonist_widget_setup');
 
+// ==============================
 // Trying to fix the nav menu link styling by adding a link_class to the wp_nav_menu array
+// ==============================
 
 function add_menu_link_class( $atts, $item, $args ) {
   if (property_exists($args, 'link_class')) {
@@ -73,3 +83,9 @@ function add_menu_link_class( $atts, $item, $args ) {
   return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+
+// ==============================
+// Include Walker file
+// ==============================
+
+require get_template_directory() . '/inc/walker.php';
