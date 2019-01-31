@@ -60,3 +60,13 @@ function antagonist_widget_setup() {
   );
 }
 add_action('widgets_init','antagonist_widget_setup');
+
+// Trying to fix the nav menu link styling by adding a link_class to the wp_nav_menu array
+
+function add_menu_link_class( $atts, $item, $args ) {
+  if (property_exists($args, 'link_class')) {
+    $atts['class'] = $args->link_class;
+  }
+  return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );

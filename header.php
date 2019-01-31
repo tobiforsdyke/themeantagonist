@@ -51,8 +51,9 @@
               'container'=>'nav',
               'container_class'=>'collapse navbar-collapse',
               'container_id'=>'menuItemsCollapsed1',
-              'menu_class'=>'nav navbar-nav ml-auto navbar nav-item',
-              'items_wrap'=>'<ul id="%1$s" class="%2$s">%3$s</ul>'
+              'menu_class'=>'nav navbar-nav ml-auto navbar nav-item nav-link',
+              'items_wrap'=>'<ul id="%1$s" class="%2$s">%3$s</ul>',
+              'link_class'=>'nav-link'
               // 'items_wrap'=>'%3$s'
               // 'menu_id'=>''
               // 'fallback_cb'=>false
