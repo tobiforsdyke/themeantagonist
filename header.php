@@ -28,13 +28,12 @@
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="">
 
           <!-- Test jumbotron which includes the custom header image -->
-          <div class="jumbotron" style="margin-bottom: 0px; background-image: url(<?php header_image(); ?>); background-size: 100%; background-repeat: no-repeat;">
+          <!-- <div class="jumbotron" style="margin-bottom: 0px; background-image: url(<?php header_image(); ?>); background-size: 100%; background-repeat: no-repeat;">
             <h1>Header</h1>
             <p>Paragraph</p>
-          </div>
+          </div> -->
 
           <!-- Adds the menu -->
-
 
           <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -61,31 +60,7 @@
             <!-- </div> -->
           </nav>
 
-<hr />
-
-          <!-- Alternate Navbar testing -->
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-          <hr />
+          <hr>
 
         </div>
       </div>
