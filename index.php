@@ -28,8 +28,17 @@
             </div>
           </div>
 
-    <?php $i++; endwhile;
-    endif; ?>
+    <?php $i++; endwhile; ?>
+
+      <!-- Activate Pagination -->
+      <div class="col-6 text-left">
+        <?php next_posts_link('« Older Posts'); ?>
+      </div>
+      <div class="col-6 text-right">
+        <?php previous_posts_link('Newer Posts »'); ?>
+      </div>
+
+    <?php endif; ?>
 
     </div>
 
