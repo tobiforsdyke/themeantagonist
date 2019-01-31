@@ -1,3 +1,5 @@
+/* body {margin-top: 100px;} */
+
 .carousel .carousel-item { height: 300px; overflow: hidden; }
 .carousel .carousel-item img { width: 100%; height: auto; margin-top: -44%; }
 .carousel-caption a { color: #fff; }
