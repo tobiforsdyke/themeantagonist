@@ -21,13 +21,15 @@
 
 .search-form-container {
   display: none;
-  position: fixed;
+  position: static;
   top: 130px;
-  left: 0;
-  right: 0;
+  /* left: 0; */
+  /* right: 0; */
   background-color: rgba(0, 0, 0, 0.10);
   padding: 10px;
   z-index: 2;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .open-search a {
   font-size: 0;
