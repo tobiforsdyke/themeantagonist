@@ -9,7 +9,7 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
     $submenu = ($depth > 0) ? ' sub-menu' : '';
     $output .= "\n$indent<ul class=\"dropdown-menu$submenu depth_$depth\">\n";
   }
-/*
+
   // li a span class generation
   function start_el( &$output, $item, $depth = 0, $args = array(), $id =0 ){
     // Generates the li tag
@@ -28,7 +28,7 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
     }
 
     $class_names = join( ' ', apply_filters('nav_menu_css_class', array_filter( $classes ), $item, $args) );
-    $class_names = ' class="' . esc_attr($class_names) . '"';
+    $class_names = ' class=" nav-item ' . esc_attr($class_names) . '"';
 
     $id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
     $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
@@ -39,8 +39,9 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
     $attributes .= ! empty( $item->target ) ? ' target="' . esc_attr($item->target) . '"' : '';
     $attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
     $attributes .= ! empty( $item->url ) ? ' href="' . esc_attr($item->url) . '"' : '';
+    // $attributes .= ! empty( $item->class ) ? ' class="' . esc_attr($item->class) . '"' : ' class="nav-link"';
 
-    $attributes .= ( $args->walker->has_children ) ? ' class="dropdown-toggle" data-toggle="dropdown"' : '';
+    $attributes .= ( $args->walker->has_children ) ? ' class=" dropdown-toggle nav-link" data-toggle="dropdown"' : ' class="nav-link"';
 
     $item_output = $args->before;
     $item_output .= '<a' . $attributes . '>';
@@ -52,7 +53,7 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
 
   }
 
-*/
+
 
   //closing li a and span
   // function end_el(){}
