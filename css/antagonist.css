@@ -31,7 +31,7 @@
   margin-left: -15px;
   margin-right: -15px;
 }
-.open-search a {
+/* .open-search a {
   font-size: 0;
   width: 30px;
   position: relative;
@@ -47,16 +47,4 @@
   -moz-osx-font-smoothings: grayscale;
   content: "\e003";
   font-size: 20px;
-}
-
-/*
-.open-search a {
-    position: relative;
-}
-.open-search a:after {
-    content: "\f002";
-    font-family: FontAwesome;
-    left: -5px;
-    position: absolute;
-    top: 0;
 } */
