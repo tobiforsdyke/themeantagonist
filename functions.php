@@ -90,3 +90,12 @@ add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 // ==============================
 
 require get_template_directory() . '/inc/walker.php';
+
+// ==============================
+// Head Function to remove Wordpress version number from generator meta
+// ==============================
+
+function antagonsit_remove_wp_version() {
+  return '';
+}
+add_filter('the_generator', 'antagonsit_remove_wp_version');
