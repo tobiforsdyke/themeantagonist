@@ -57,7 +57,7 @@
               'walker' => new Walker_Nav_Primary()
               // 'items_wrap'=>'%3$s'
               // 'menu_id'=>''
-              // 'fallback_cb'=>false
+              // 'fallback_cb' => '__return_false'
             ) ); ?>
             <!-- </div> -->
           </nav>
