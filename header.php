@@ -35,7 +35,6 @@
           </div> -->
 
           <!-- Adds the menu -->
-
           <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
             <a class="navbar-brand" href="#">Navbar</a>
             <!-- Add the toggle button -->
