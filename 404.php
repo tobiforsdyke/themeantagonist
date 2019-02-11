@@ -24,7 +24,7 @@
               </ul>
           </div>
 
-          <?php the_widget('WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content"); ?>
+          <?php the_widget('WP_Widget_Archives', 'dropdown=1', "after_title=</h2>"); ?>
 
         </div>
       </section>

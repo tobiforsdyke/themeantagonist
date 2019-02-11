@@ -12,7 +12,7 @@ function antagonist_script_enqueue() {
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js', array(), '4.2.1', true );
   wp_enqueue_script( 'customjs', get_template_directory_uri() . '/js/antagonist.js', array(), '1.1.3', true );
-  // FONTAWESOME?
+  // FONTAWESOME
   wp_enqueue_style( 'fontawesomestyle', get_template_directory_uri() . '/fontawesome/css/all.min.css' );
   wp_enqueue_script( 'fontawesomejs', get_template_directory_uri() . '/fontawesome/js/all.min.js' );
 }
@@ -99,3 +99,81 @@ function antagonsit_remove_wp_version() {
   return '';
 }
 add_filter('the_generator', 'antagonsit_remove_wp_version');
+
+// ==============================
+// Custom Post Types
+// ==============================
+
+function antagonist_custom_post_type() {
+  // Creates the labels and arguments for the Portfolio custom post type
+  $portfoliolabels = array(
+    'name' => 'Portfolio',
+    'singular_name' => 'Portfolio',
+    'add_new' => 'Add Portfolio Item',
+    'all_items' => 'All Items',
+    'add_new_item' => 'Add Item',
+    'edit_item' => 'Edit Item',
+    'new_item' => 'New Item',
+    'view_item' => 'View Item',
+    'search_item' => 'Search Portfolio',
+    'not_found' => 'No Items Found',
+    'not_found_in_trash' => 'No items found in trash',
+    'parent_item_colon' => 'Parent Item',
+  );
+  $portfolioargs = array(
+    'labels' => $portfoliolabels,
+    'public' => true,
+    'has_archive' => true,
+    'publicly_queryable' => true,
+    'query_var' => true,
+    'rewrite' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array(
+      'title',
+      'editor',
+      'excerpt',
+      'thumbnail',
+      'revision'
+    ),
+    'taxonomies' => array( 'category', 'post_tag' ),
+    'menu_position' => 5,
+    'exclude_from_search' => false,
+    'menu_icon' => 'dashicons-portfolio',
+  );
+  // Creates the labels and arguments for the Clients custom post type
+  $clientlabels = array(
+    'name' => 'Clients',
+    'singular_name' => 'Client',
+    'add_new' => 'Add Client',
+    'all_items' => 'All Clients',
+    'add_new_item' => 'Add Client',
+    'edit_item' => 'Edit Client',
+    'new_item' => 'New Client',
+    'view_item' => 'View Client',
+    'search_item' => 'Search Clients',
+    'not_found' => 'No Clients Found',
+    'not_found_in_trash' => 'No clients found in trash',
+    'parent_item_colon' => 'Parent Client',
+  );
+  $clientargs = array(
+    'labels' => $clientlabels,
+    'public' => true,
+    'has_archive' => true,
+    'publicly_queryable' => true,
+    'query_var' => true,
+    'rewrite' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revision' ),
+    'taxonomies' => array( 'category', 'post_tag' ),
+    'menu_position' => 5,
+    'exclude_from_search' => false,
+    'menu_icon' => 'dashicons-groups',
+  );
+  // Registers both of the custom post types above
+  register_post_type( 'portfolio', $portfolioargs );
+  register_post_type( 'clients', $clientargs );
+}
+
+add_action( 'init', 'antagonist_custom_post_type' );
