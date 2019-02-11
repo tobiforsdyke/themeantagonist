@@ -250,3 +250,21 @@ function antagonist_custom_taxonomies() {
 }
 
 add_action( 'init', 'antagonist_custom_taxonomies' );
+
+// ==============================
+// Function to get custom terms (to add the taxonomies)
+// e.g. Used in single-portfolio.php to call the custom taxonomies
+// ==============================
+
+function antagonist_get_terms( $postID, $term ){
+  $terms_list = wp_get_post_terms($postID, $term);
+  $output = '';
+
+  $i = 0;
+  foreach( $terms_list as $term ){ $i++;
+    if( $i > 1 ){ $output .= ', '; }
+    $output .= '<a href="' . get_term_link( $term ) . '">'. $term->name .'</a>';
+  }
+
+  return $output;
+}

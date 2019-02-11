@@ -11,34 +11,18 @@
             <?php if( has_post_thumbnail() ): ?>
               <div class="float-right"><?php the_post_thumbnail('thumbnail'); ?></div>
             <?php endif; ?>
-            <small><?php
-              // Display the custom taxonomies (portfolio kinds)
-              $terms_list = wp_get_post_terms($post->ID, 'kind');
-              $i = 0;
-              foreach( $terms_list as $term ){ $i++;
-                if( $i > 1 ){ echo ', '; }
-                echo $term->name;
-              }
-
-            ?> | <?php
-
-              $terms_list = wp_get_post_terms($post->ID, 'software');
-              $i = 0;
-              foreach( $terms_list as $term ){ $i++;
-                if( $i > 1 ){ echo ', '; }
-                echo $term->name;
-              }
-
-            ?> | <?php
-
-              $terms_list = wp_get_post_terms($post->ID, 'coding');
-              $i = 0;
-              foreach( $terms_list as $term ){ $i++;
-                if( $i > 1 ){ echo ', '; }
-                echo $term->name;
-              }
-
-            ?> | <?php edit_post_link(); ?></small>
+              <!-- Below Uses the 'Function to get custom terms' from functions.php -->
+              <small><?php
+                echo antagonist_get_terms( $post->ID, 'kind' );
+              ?> | <?php
+                echo antagonist_get_terms( $post->ID, 'software' );
+              ?> | <?php
+                echo antagonist_get_terms( $post->ID, 'coding' );
+              ?><?php
+                if( current_user_can('manage_options') ) {
+                echo ' | '; edit_post_link();
+                }
+              ?></small>
             <?php the_content(); ?>
             <hr>
 
