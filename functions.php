@@ -136,7 +136,6 @@ function antagonist_custom_post_type() {
       'thumbnail',
       'revision'
     ),
-    'taxonomies' => array( 'category', 'post_tag' ),
     'menu_position' => 5,
     'exclude_from_search' => false,
     'menu_icon' => 'dashicons-portfolio',
@@ -166,7 +165,6 @@ function antagonist_custom_post_type() {
     'capability_type' => 'post',
     'hierarchical' => false,
     'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revision' ),
-    'taxonomies' => array( 'category', 'post_tag' ),
     'menu_position' => 5,
     'exclude_from_search' => false,
     'menu_icon' => 'dashicons-groups',
@@ -177,3 +175,78 @@ function antagonist_custom_post_type() {
 }
 
 add_action( 'init', 'antagonist_custom_post_type' );
+
+// ==============================
+// Custom Taxonomies
+// ==============================
+
+function antagonist_custom_taxonomies() {
+
+  // Add new Hierarchical taxonomy (CATEGORIES)
+
+  $portfoliolabels = array(
+    'name' => 'Kinds',
+    'singular_name' => 'Kind',
+    'search_items' => 'Search Kinds',
+    'all_items' => 'All Kinds',
+    'parent_item' => 'Parent Kind',
+    'parent_item_colon' => 'Parent Kind',
+    'edit_item' => 'Edit Kind',
+    'update_item' => 'Update Kind',
+    'add_new_item' => 'Add New Kind',
+    'new_item_name' => 'New Kind Name',
+    'menu_name' => 'Kind'
+  );
+  $portfolioargs = array(
+    'hierarchical' => true,
+    'labels' => $portfoliolabels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'kind' )
+  );
+  $clientlabels = array(
+    'name' => 'Companies',
+    'singular_name' => 'Company',
+    'search_items' => 'Search Companies',
+    'all_items' => 'All Companies',
+    'parent_item' => 'Parent Companies',
+    'parent_item_colon' => 'Parent Companies',
+    'edit_item' => 'Edit Companies',
+    'update_item' => 'Update Companies',
+    'add_new_item' => 'Add New Company',
+    'new_item_name' => 'New Company Name',
+    'menu_name' => 'Company'
+  );
+  $clientargs = array(
+    'hierarchical' => true,
+    'labels' => $clientlabels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'company' )
+  );
+
+  register_taxonomy( 'kind', array('portfolio'), $portfolioargs );
+  register_taxonomy( 'company', array('clients'), $clientargs );
+
+  // Add new non-hierarchical taxonomy (TAGS)
+
+  register_taxonomy( 'software', 'portfolio', array(
+    'label' => 'Software',
+    'rewrite' => array( 'slug' => 'software' ),
+    'hierarchical' => false
+  ) );
+  register_taxonomy( 'coding', 'portfolio', array(
+    'label' => 'Programming Languages',
+    'rewrite' => array( 'slug' => 'coding' ),
+    'hierarchical' => false
+  ) );
+  register_taxonomy( 'clienttype', 'clients', array(
+    'label' => 'Client Types',
+    'rewrite' => array( 'slug' => 'client-type' ),
+    'hierarchical' => false
+  ) );
+}
+
+add_action( 'init', 'antagonist_custom_taxonomies' );
